@@ -19,12 +19,11 @@ int main() {
                 expr[i - 1] = count + '0'; 
                 strcpy(&expr[i], &expr[i + 2]); 
                 count++;
-                i = -1; // Rescan
+                i = -1; 
             }
         }
     }
 
-    // Print all results
     printf("\n--- Three-Address Code ---\n");
     for (i = 0; i < count; i++) {
         printf("t%d = ", i + 1);
