@@ -4,8 +4,8 @@
 
 int n;
 char p[20][20];
-char fi[26][20];
-char fo[26][20];
+char fi[26][20] = {0};
+char fo[26][20] = {0};
 int nt[26] = {0};
 
 int add(char* s, char c) {
