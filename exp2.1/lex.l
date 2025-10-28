@@ -6,7 +6,9 @@
 %%
 [0-9] {return Number;}
 [a-z|A-Z][a-z|A-Z|0-9]* {return Identifier;}
-[-] {return Inavlid;}
+\n {return 0;}
+[+|-|*|/] {return yytext[0];}
+. {printf("Invalid"); exit(1);}
 %%
 
 int yywrap(void){

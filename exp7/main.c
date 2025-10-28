@@ -9,7 +9,7 @@ char fo[26][20] = {0};
 int nt[26] = {0};
 
 int add(char* s, char c) {
-    if (strchr(s, c) == NULL) {
+    if (strchr(s, c) == NULL) { 
         s[strlen(s)] = c;
         return 1;
     }

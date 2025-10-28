@@ -1,0 +1,9 @@
+S=aBDh
+B=cC
+C=bC
+C=e
+D=EF
+E=g
+E=e
+F=f
+F=e

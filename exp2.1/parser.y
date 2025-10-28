@@ -5,19 +5,21 @@
   void yyerror(const char *s);  
 %}
 
-%token Number Identifier Invalid
-%left '+'
+%token Number Identifier
+%left '+' '-'
+%left '*' '/'
 
 %%
 Arithmetic:
-    No {printf("INVALIDDD"); exit(0);}
-    expr {printf("Valid"); exit(0);}
+    expr{printf("Valid Expression"); exit(0);}
 expr:
-    expr '+' expr
-    | Number
+    Number
     | Identifier
-No:
-    Invalid
+    | expr'+'expr
+    | expr'-'expr
+    | expr'*'expr
+    | expr'/'expr
+    ;
 %%
 
 void yyerror(const char *s){
