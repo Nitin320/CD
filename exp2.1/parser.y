@@ -1,33 +1,31 @@
-%{  
-  #include <stdio.h>
-  #include <stdlib.h>
-  int yylex();
-  void yyerror(const char *s);  
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    int yylex();
+    void yyerror(const char* s);    
 %}
 
-%token Number Identifier
+%token Number
 %left '+' '-'
 %left '*' '/'
 
 %%
-Arithmetic:
-    expr{printf("Valid Expression"); exit(0);}
+answer:
+    expr {printf("%d", $$);exit(0);}
 expr:
     Number
-    | Identifier
-    | expr'+'expr
-    | expr'-'expr
-    | expr'*'expr
-    | expr'/'expr
-    ;
+    | expr'+'expr {$$=$1+$3;}
+    | expr'-'expr {$$=$1-$3;}
+    | expr'*'expr {$$=$1*$3;}
+    | expr'/'expr {$$=$1/$3;}
 %%
 
-void yyerror(const char *s){
-    printf("Invalid");
+void yyerror(const char* s){
+    exit(1);
 }
 
 int main(){
-    printf("Enter expression : ");
+    printf("Enter stuff : ");
     yyparse();
     return 0;
 }
